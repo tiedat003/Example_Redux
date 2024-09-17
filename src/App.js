@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPhotos } from './actions';
+import photosReducer from './photosReducer'
 
 const Photos = () => {
   const dispatch = useDispatch();
@@ -14,17 +15,14 @@ const Photos = () => {
     dispatch(fetchPhotos());
   }, [dispatch]);
 
-  // Hiển thị loading
   if (loading) {
     return <p>Đang tải dữ liệu...</p>;
   }
 
-  // Hiển thị lỗi nếu có
   if (error) {
     return <p>Lỗi khi tải dữ liệu: {error}</p>;
   }
 
-  // Hiển thị dữ liệu ảnh sau khi fetch thành công
   return (
     <div>
       <h1>Danh sách ảnh</h1>
