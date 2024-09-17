@@ -25,7 +25,7 @@ export const fetchPhotos = () => {
         dispatch(fetchPhotosRequest());
         fetch('https://jsonplaceholder.typicode.com/photos')
             .then((response) => response.json())
-            .then((data) => dispatch(fetchPhotosSuccess(data.slice(0, 10)))) // Lấy 10 ảnh đầu tiên
+            .then((data) => dispatch(fetchPhotosSuccess(data))) 
             .catch((error) => dispatch(fetchPhotosFailure(error.message)));
     };
 };
